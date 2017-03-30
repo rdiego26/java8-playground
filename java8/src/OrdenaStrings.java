@@ -9,7 +9,6 @@ public class OrdenaStrings {
 
         List<String> palavras = new ArrayList<String>();
         Comparator<String> comparator = new ComparadorPorTamanho();
-        Consumer<String> consumidor = new ImprimeNaLinha();
 
         palavras.add("uva");
         palavras.add("morango");
@@ -17,17 +16,9 @@ public class OrdenaStrings {
         palavras.add("abacaxi");
 
         palavras.sort(comparator);
-        palavras.forEach(consumidor);
+        palavras.forEach(s -> System.out.println(s));
     }
 
-}
-
-class ImprimeNaLinha implements Consumer<String> {
-
-    @Override
-    public void accept(String s) {
-        System.out.println(s);
-    }
 }
 
 class ComparadorPorTamanho implements Comparator<String> {
