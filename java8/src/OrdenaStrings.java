@@ -14,7 +14,7 @@ public class OrdenaStrings {
         palavras.add("abacaxi");
 
         palavras.sort(Comparator.comparing(String::length));
-        palavras.forEach(s -> System.out.println(s));
+        palavras.forEach(System.out::println);
     }
 
 }
