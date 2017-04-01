@@ -2,7 +2,7 @@ import entity.Curso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class TesteCurso {
 
@@ -22,6 +22,15 @@ public class TesteCurso {
                 .map(Curso::getAlunos)
                 .forEach(System.out::println);
 
+        Double average = cursos.stream()
+                .mapToInt(Curso::getAlunos)
+                .average().orElse(0);
+
+        System.out.println("Media: " + average);
+
+        List<Curso> listaCursos = cursos.stream()
+                .filter(c -> c.getAlunos() > 50)
+                .collect(Collectors.toList());
     }
 
 }
